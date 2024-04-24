@@ -4,7 +4,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import planeScene from "../assets/3d/plane.glb";
 
 // 3D Model from: https://sketchfab.com/3d-models/stylized-ww1-plane-c4edeb0e410f46e8a4db320879f0a1db
-export function Plane({ isRotating, ...props }) {
+export function Plane({ isRotating, planePosition, ...props }) {
   const ref = useRef();
 
   const { scene, animations } = useGLTF(planeScene);
@@ -12,6 +12,8 @@ export function Plane({ isRotating, ...props }) {
 
   useEffect(() => {
     console.log({isRotating});
+    console.log({planePosition});
+    
     if (isRotating) {
       actions["Take 001"].play();
     } else {

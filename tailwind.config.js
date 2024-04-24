@@ -6,6 +6,15 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        propel: {
+         '0%': { transform: 'translateX(0)' },
+         '20%': { transform: 'translateX(25%)' },
+         '40%': { transform: 'translateX(-25%)' },
+         '60%': { transform: 'translateX(25%)' },
+         '100%': { transform: 'translateX(-25%)' },
+       },
+     },
       colors: {
         gray: {
           200: "#D5DAE1"

@@ -2,7 +2,7 @@
 import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 
 import {Home, About, Projects, Contact} from './pages';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
     <main className="bg-slate-300/20">
 
         <Router>
-            <Navbar /> 
+            <NavBar /> 
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path="/about" element={<About />} />

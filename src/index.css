@@ -23,7 +23,7 @@ body:has(.card[data-color="green"]:hover) {
 
 @layer utilities {
   .max-container {
-    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[150px] px-8 min-h-[calc(100vh-80px)];  
   }
 
   .head-text {
@@ -50,9 +50,21 @@ body:has(.card[data-color="green"]:hover) {
     @apply text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center;
   }
 
-  .header {
+  .contact_btn {
+    @apply text-white bg-gradient-to-r from-green-600 to-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md px-4 sm:px-6 py-2 sm:py-3 text-center shadow-lg hover:from-green-500 hover:to-green-700 transition-colors duration-300 ease-in-out;
+}
+
+  /* .header {
     @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
+  } */
+
+  .header {
+    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-4xl ms-auto fixed top-2 bg-transparent z-10 right-0 rounded-lg;
+    /* background-color: rgba(255, 255, 255, 0.3); White background with 50% transparency */
+    /* @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl ms-auto fixed top-0 z-10 right-0; */
+
   }
+  
 
   .footer {
     @apply max-w-5xl mx-auto sm:px-16 pb-6 px-8 flex flex-col gap-7;
@@ -167,17 +179,72 @@ body:has(.card[data-color="green"]:hover) {
 
 /* Neo Brutalism */
 .neo-brutalism-blue {
-  background: #2b77e7;
+  background: #006A4E;
+  background-image: url('/Users/puneetsandher/Documents/learn_three/updated-personal-website/src/assets/images/trees-overlay-1.png');
+  background-blend-mode: multiply;
+  background-size: cover;
   position: relative;
   border-radius: 10px;
-  border: #2b77e7;
-  box-shadow: 0.6vmin 0.6vmin #336cc1, 1vmin 1vmin #0092db, 1vmin 1vmin #0092db,
-    0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db;
+  border: #004A39;
+  box-shadow: 0.6vmin 0.6vmin #004A39, 1vmin 1vmin #33C481, 1vmin 1vmin #33C481,
+    0.65vmin 1vmin #33C481, 1vmin 0.65vmin #33C481;
 }
 
 .neo-brutalism-white {
   background: #fff;
   border: #fff;
-  box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
-    0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+  box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #ACE1AF, 1vmin 1vmin #ACE1AF,
+    0.65vmin 1vmin #ACE1AF, 1vmin 0.65vmin #ACE1AF;
 }
+
+
+.nav-link {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 0 4px;
+  /* background-color: #f0f0f0; */
+  background-color: #005fa3;
+
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling for active nav link */
+.nav-link-active {
+  color: #fff;
+  background-color: #0077cc;
+  background-color: #f0f0f0;
+}
+
+/* Hover and focus styles */
+.nav-link:hover, .nav-link:focus {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+}
+
+/* .card {
+  background-color: #0077cc;
+  width: 18rem;
+  border-radius: 1.2rem;
+  color: #fff;
+} */
+
+.card {
+  background-color: #1a535c; /* A deep green color */
+  color: white; /* Ensures text is white */
+  border-radius: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Adds a shadow effect on hover */
+}
+
+/* .card img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto; 
+  display: block; 
+} */

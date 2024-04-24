@@ -8,6 +8,8 @@ import { Fox } from "../models/Fox";
 import Loader from '../components/Loader'
 import useAlert from '../hooks/useAlert'
 import Alert from '../components/Alert'
+import linkedinIcon from '../assets/icons/linkedin.png'
+import Card from 'react-bootstrap/Card';
 
 const Contact = () => {
   const formRef = useRef();
@@ -81,7 +83,34 @@ const Contact = () => {
       {alert.show && <Alert {...alert} />}
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Get in Touch</h1>
+        <h1 className='head-text'>Let's Connect</h1>
+
+        {/* <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-6 col-lg-4">
+              <div className="card text-center" style={{ cursor: 'pointer' }} onClick={() => window.open('https://www.linkedin.com/in/puneet-sandher/', '_blank')}>
+                <div className="card-body">
+                  <img src={linkedinIcon} alt="LinkedIn" style={{ width: '60px', height: '60px' }} />
+
+                  <i className="fab fa-linkedin fa-3x" style={{ color: '#0a66c2' }}></i>
+                  <h5 className="card-title mt-3">Connect with me on LinkedIn</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+                        {/* <img src={linkedinIcon} alt="LinkedIn" className="mt-5" style={{ width: '60px', height: '60px', display: 'block', margin: 'auto' }} /> */}
+
+        {/* <Card style={{ width: '18rem' }}> */}
+        <Card className="text-center mt-4" style={{ cursor: 'pointer', backgroundColor: '#1a535c', color: 'white' }}  onClick={() => window.open('https://www.linkedin.com/in/puneet-sandher/', '_blank')}>
+            <Card.Body>
+                <img src={linkedinIcon} alt="LinkedIn" className="mt-5 mx-auto d-block" style={{ width: '60px', height: '60px' }} />
+
+                <Card.Title style={{ fontSize: '1.5rem' }} className="font-semibold">Connect with me on LinkedIn</Card.Title>
+                <Card.Subtitle className="mb-2 text-white-200 font-semibold">@ Puneet Sandher</Card.Subtitle>
+            </Card.Body>
+        </Card>
 
         <form
           ref={formRef}
@@ -122,7 +151,7 @@ const Contact = () => {
               name='message'
               rows='4'
               className='textarea'
-              placeholder='Type here...'
+              placeholder='Type message here...'
               value={form.message}
               onChange={handleChange}
               onFocus={handleFocus}
@@ -137,7 +166,7 @@ const Contact = () => {
             onFocus={handleFocus}
             onBlur={handleBlur}
           >
-            {loading ? "Sending..." : "Submit"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
