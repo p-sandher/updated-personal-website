@@ -105,19 +105,19 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 
             switch (true) {
                 case normalizedRotation >= 5.3 && normalizedRotation <= 5.5:
-                setCurrentStage(4);
+                setCurrentStage(2);
                 break;
                 case normalizedRotation >= 0.6 && normalizedRotation <= 0.9:
-                setCurrentStage(4);
+                setCurrentStage(5);
                 break;
                 case normalizedRotation >= 2.4 && normalizedRotation <= 2.7:
                 setCurrentStage(4);
                 break;
-                case normalizedRotation >= 3.1 && normalizedRotation <= 3.3:
-                setCurrentStage(3);
-                break;
+                // case normalizedRotation >= 3.1 && normalizedRotation <= 3.3:
+                // setCurrentStage(3);
+                // break;
                 case normalizedRotation >= 3.8 && normalizedRotation <= 4.0:
-                setCurrentStage(2);
+                setCurrentStage(3);
                 break;
                 case normalizedRotation >= 6.01 && normalizedRotation <= 6.45:
                 setCurrentStage(1);
