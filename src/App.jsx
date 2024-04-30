@@ -1,4 +1,3 @@
-// import React from 'react'
 import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 
 import {Home, About, Projects, Contact} from './pages';
@@ -6,7 +5,6 @@ import NavBar from './components/NavBar';
 
 const App = () => {
   return (
-    // <main className="bg-slate-300/20 h-[100vh]">
     <main className="bg-slate-300/20">
 
         <Router>

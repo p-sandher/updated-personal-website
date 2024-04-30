@@ -3,8 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
 
 import { Fox } from "../models/Fox";
-// import useAlert from "../hooks/useAlert";
-// import { Alert, Loader } from "../components";
+
 import Loader from '../components/Loader'
 import useAlert from '../hooks/useAlert'
 import Alert from '../components/Alert'
@@ -85,24 +84,6 @@ const Contact = () => {
       <div className='flex-1 min-w-[50%] flex flex-col'>
         <h1 className='head-text'>Let's Connect</h1>
 
-        {/* <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6 col-lg-4">
-              <div className="card text-center" style={{ cursor: 'pointer' }} onClick={() => window.open('https://www.linkedin.com/in/puneet-sandher/', '_blank')}>
-                <div className="card-body">
-                  <img src={linkedinIcon} alt="LinkedIn" style={{ width: '60px', height: '60px' }} />
-
-                  <i className="fab fa-linkedin fa-3x" style={{ color: '#0a66c2' }}></i>
-                  <h5 className="card-title mt-3">Connect with me on LinkedIn</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
-                        {/* <img src={linkedinIcon} alt="LinkedIn" className="mt-5" style={{ width: '60px', height: '60px', display: 'block', margin: 'auto' }} /> */}
-
-        {/* <Card style={{ width: '18rem' }}> */}
         <Card className="text-center mt-4" style={{ cursor: 'pointer', backgroundColor: '#1a535c', color: 'white' }}  onClick={() => window.open('https://www.linkedin.com/in/puneet-sandher/', '_blank')}>
             <Card.Body>
                 <img src={linkedinIcon} alt="LinkedIn" className="mt-5 mx-auto d-block" style={{ width: '60px', height: '60px' }} />

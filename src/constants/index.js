@@ -8,7 +8,6 @@ import {
     css,
     estate,
     express,
-    // git,
     github,
     javascript,
     html,

@@ -38,15 +38,15 @@ const renderContent = {
     4: (
         <InfoBox 
             text="Take a closer look at my professional journey and expertise"
-            link="/contact"
-            btnText="View my resume"
+            link="https://drive.google.com/file/d/1cizJZ4RY5bGRrgWTDf-Zkn177eMI_QSU/view"
+            btnText="View my  Resume"
         />
     ), 
     5: (
         <InfoBox 
             text="Have questions or want to collaborate?"
             link="/contact"
-            btnText="Let's talk"
+            btnText="Let's Talk"
         />
     ), 
 }

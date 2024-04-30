@@ -54,15 +54,8 @@ body:has(.card[data-color="green"]:hover) {
     @apply text-white bg-gradient-to-r from-green-600 to-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-md px-4 sm:px-6 py-2 sm:py-3 text-center shadow-lg hover:from-green-500 hover:to-green-700 transition-colors duration-300 ease-in-out;
 }
 
-  /* .header {
-    @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl mx-auto absolute top-0 bg-transparent z-10 right-0 left-0;
-  } */
-
   .header {
     @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-4xl ms-auto fixed top-2 bg-transparent z-10 right-0 rounded-lg;
-    /* background-color: rgba(255, 255, 255, 0.3); White background with 50% transparency */
-    /* @apply flex justify-between items-center sm:px-16 px-8 py-4 max-w-5xl ms-auto fixed top-0 z-10 right-0; */
-
   }
   
 
@@ -225,26 +218,12 @@ body:has(.card[data-color="green"]:hover) {
   cursor: pointer;
 }
 
-/* .card {
-  background-color: #0077cc;
-  width: 18rem;
-  border-radius: 1.2rem;
-  color: #fff;
-} */
-
 .card {
-  background-color: #1a535c; /* A deep green color */
-  color: white; /* Ensures text is white */
+  background-color: #1a535c; 
+  color: white; 
   border-radius: 20px;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Adds a shadow effect on hover */
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
 }
-
-/* .card img {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto; 
-  display: block; 
-} */
