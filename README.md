@@ -1,4 +1,4 @@
-# Molecule-Visualizer
+# Personal Portfolio
 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
@@ -54,29 +54,24 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/p-sandher/updated-personal-website.git
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd updated-personal-website
 
 # Install dependencies
 $ npm install
 
 # Run the app
-$ npm start
+$ npm run dev
 ```
-
-
 
 ### Built With
 
-* [![Css][Css]][Css-url]
+* [![Tailwind][Tailwind]][Tailwind-url]
 * [![Html][Html]][Html-url]
 * [![Js][Js]][Js-url]
-* [![Python][Python]][Python-url]
-* [![Sql][Sql]][Sql-url]
-* [![jQuery][jQuery]][jQuery-url]
-* [![C][C]][C-url]
+* [![Threejs][Threejs]][Threejs-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,9 +89,9 @@ $ npm start
 <br />
 Puneet Sandher -  puneetsandher@gmail.com
 
-Project Link: [https://github.com/p-sandher/puneet-sandher-website](https://github.com/p-sandher/puneet-sandher-website)
+Project Link: [https://github.com/p-sandher/updated-personal-website](https://github.com/p-sandher/updated-personal-website)
 
-Website Link: [https://puneet-sandher.netlify.app/] (https://puneet-sandher.netlify.app/)
+Website Link: [https://puneet-sandher.netlify.app/](https://puneet-sandher.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,11 +99,6 @@ Website Link: [https://puneet-sandher.netlify.app/] (https://puneet-sandher.netl
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Inspiration for design and code taken from the following
-* [EGATOR](https://www.youtube.com/watch?v=G-Cr00UYokU&t=247s&ab_channel=EGATOR)
-* [developedbyed](https://www.youtube.com/watch?v=k-Pi5ZMxHWY&ab_channel=developedbyed)
-* [JavaScriptMastery](https://www.youtube.com/watch?v=3HNyXCPDQ7Q&t=104s&ab_channel=JavaScriptMastery)
 
 ReadME template is from 
 * [othneildrew](https://github.com/othneildrew/Best-README-Template)
@@ -128,15 +118,11 @@ ReadME template is from
 
 [Html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
 [Html-url]: https://html.com/
-[Css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
-[Css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
+[Tailwind]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[Tailwind-url]: https://tailwindcss.com/
 [Js]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
 [Js-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [Python]: https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
 [Python-url]: https://www.python.org/
-[Sql]: https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white
-[Sql-url]: https://www.mysql.com/
-[jQuery]: https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white
-[jQuery-url]: https://jquery.com/
-[C]: https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white
-[C-url]: https://devdocs.io/c/
+[Threejs]: https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white
+[Threejs-url]: https://threejs.org/docs/
