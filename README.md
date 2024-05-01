@@ -48,6 +48,26 @@
 
 Introducing my molecule visualizer project, a full-stack application designed to revolutionize molecular visualization. With the ability to rotate molecules along the x, y, and z axes at customizable degrees, this platform employs a seamless web interface for uploading CDF files. In the backend, C files handle the storage, retrieval, and sorting of atoms and bonds, while Python efficiently parses CDF files, storing the data in a MySQL database. The application then dynamically generates SVG files, providing an interactive and visually engaging representation of the molecular structures. Elevate your molecular exploration with this comprehensive and user-friendly tool.
 
+### How to Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/amitmerchant1990/electron-markdownify
+
+# Go into the repository
+$ cd electron-markdownify
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start
+```
+
+
+
 ### Built With
 
 * [![Css][Css]][Css-url]
