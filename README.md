@@ -48,6 +48,8 @@
 
 ![Website Screen Shot][website-preview.png]
 
+<img src="website-preview.png" alt="Website Preview">
+
 This portfolio website is designed to showcase my journey and competencies as a software developer. It features interactive 3D animations powered by Three.js, enhancing the user experience and providing a dynamic way to explore my professional experiences, skills, and projects. The site is built with a focus on visual storytelling, aiming to present my work in the most engaging manner. Through this portfolio, I aim to illustrate not only my technical abilities but also my creativity and passion for software development. Please explore the site to learn more about my personal and professional milestones.
 
 ### How to Use
