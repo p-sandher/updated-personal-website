@@ -2,11 +2,6 @@
 import { NavLink, useLocation } from 'react-router-dom'
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import logo from '../assets/icons/logo_test.svg'
-import navIcon1 from '../assets/icons/nav-icon1.svg'
-import navIcon2 from '../assets/icons/nav-icon2.svg'
-import navIcon3 from '../assets/icons/nav-icon3.svg'
-
 
 const NavBar = () => {
 
@@ -26,7 +21,7 @@ const NavBar = () => {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/about">About Me</Nav.Link>
                         <Nav.Link href="/projects">Projects</Nav.Link>
-                        <Nav.Link href="https://drive.google.com/file/d/1cizJZ4RY5bGRrgWTDf-Zkn177eMI_QSU/view?usp=sharing" target="_blank">Resume</Nav.Link>
+                        <Nav.Link href="https://drive.google.com/file/d/1cljr9zvIOTGU544FgZP7AVtwXUUB_lF9/view?usp=sharing" target="_blank">Resume</Nav.Link>
                         <Nav.Link href="/contact" className='contact_btn'>Contact Me</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

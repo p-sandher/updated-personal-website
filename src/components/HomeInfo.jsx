@@ -38,7 +38,7 @@ const renderContent = {
     4: (
         <InfoBox 
             text="Take a closer look at my professional journey and expertise"
-            link="https://drive.google.com/file/d/1cizJZ4RY5bGRrgWTDf-Zkn177eMI_QSU/view"
+            link="https://drive.google.com/file/d/1cljr9zvIOTGU544FgZP7AVtwXUUB_lF9/view?usp=sharing"
             btnText="View my  Resume"
         />
     ), 
