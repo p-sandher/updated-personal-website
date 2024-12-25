@@ -21,7 +21,7 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          I am a third-year student at the University of Guelph, where I study software engineering with a minor in project management. 
+          I am a fifth-year student at the University of Guelph, where I study software engineering with a minor in project management. 
           I am always exploring new approaches to coding, algorithm design, and application development.
           My educational background and personal projects have given me a solid foundation in both the theory and practice of software engineering, from developing small mobile applications to contributing to large-scale software projects.
           I thrive when tackling technical challenges in environments that foster innovation and demand pushing the boundaries.

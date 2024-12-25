@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla, uog, rbc, rogers } from "../assets/images";
+import { uog, rbc, rogers, dayforce } from "../assets/images";
 
 import { R } from "../assets/icons";
 
@@ -6,7 +6,6 @@ import {
     car,
     contact,
     css,
-    estate,
     express,
     github,
     javascript,
@@ -249,6 +248,30 @@ export const skills1 = [
 
 export const experiences = [
     {
+        title: "Site Reliability Engineer",
+        company_name: "Dayforce",
+        icon: dayforce,
+        iconBg: "#AFEEEE",
+        date: "September 2024 - April 2025",
+        points: [
+            "Migrated 4 pages of a legacy application from HTML, CSS, and C# to the SRE Watchtower platform using TypeScript, Django ORM (Python), and MySQL, increasing operational efficiency by 11%.",
+            "Developed 2 custom dashboards in Azure Data Studio to visualize key performance metrics, saving 45 hours annually by reducing manual monitoring efforts.",
+            "Conducted a feasibility study on optimizing Rundeck’s node rebalancing to prevent overloads and reduce PagerDuty alerts by 30%.",
+        ],
+    },
+    {
+        title: "Full Stack Developer",
+        company_name: "Royal Bank of Canada (RBC)",
+        icon: rbc,
+        iconBg: "#A7C7E7",
+        date: "May 2024 - September 2024",
+        points: [
+            "Designed a Grafana dashboard displaying 150+ data center metrics by leveraging APIs, Python, and Prometheus.",
+            "Deployed a Grafana dashboard in production using Helios and Docker, optimizing data visualization and visibility for 200 daily users.",
+            "Developed 20 unit, smoke, and regression tests, utilizing JUnit and Jenkins, to achieve a 90% pass rate in the CI/CD pipeline.",
+        ],
+    },
+    {
         title: "Teaching Assistant for Software Design 2",
         company_name: "University of Guelph",
         icon: uog,
@@ -257,7 +280,7 @@ export const experiences = [
         points: [
             "Taught software principles to over 100 students, adapting instructional methods to improve engagement and understanding.",
             "Led lab sessions focused on data collection and visualization using Python, directly contributing to a 15% increase in class performance.",
-            "Developed auto-graders using Python that cut grading time by 40%, enhancing evaluation precision and feedback quality.",
+            "Developed Python autograders to automate grading for labs and quizzes, reducing grading time by 75%.",
             "Worked with faculty to update and refine course materials based on student feedback, ensuring instructional clarity and relevance.",
         ],
     },
@@ -271,7 +294,7 @@ export const experiences = [
             "Developed 3 command modules for Slack and Cisco Webex chatbots using Python in an Agile development process, seamlessly integrating enterprise network tools.",
             "Developed a LLM team documentation chatbot utilizing vector database, LangChain, and GPT, significantly improving communication efficiency and facilitating seamless knowledge sharing across a vast repository of over 3000 pages.",
             "Utilized React.js to create dynamic front-end components for visualizing network graphs, enhancing network monitoring and troubleshooting.",
-            "•Delivered a comprehensive presentation of my achievements and contributions to top executives in T&O during the summer term and to the Director of TI in the fall, highlighting key accomplishments and insights acquired throughout the experience.",
+            "Delivered a comprehensive presentation of my achievements and contributions to top executives in T&O during the summer term and to the Director of TI in the fall, highlighting key accomplishments and insights acquired throughout the experience.",
         ],
     },
     {
@@ -333,10 +356,10 @@ export const projects = [
     {
         iconUrl: shanti,
         theme: 'btn-back-red',
-        name: 'Shanti (in development)',
-        tools: 'C, Python, jQuery, MySQL, JavaScript, HTML, CSS',
-        description: 'Developed a mental wellness app with sentiment tracking to analyze and report mood trends, complemented by personalized wellness activities for improved mental health.',
-        link: 'https://github.com/p-sandher/shanti',
+        name: 'TikTrend',
+        tools: 'Python, scikit-learn, PyTorch, pandas, SQLite, Git',
+        description: 'Developed a machine learning model with Python, PyTorch, and scikit-learn to predict TikTok trends, leveraging engagement data and applying feature engineering to extract trend-predictive metrics.',
+        link: 'https://github.com/p-sandher/TikTrend',
     },
     {
         iconUrl: molecule,
