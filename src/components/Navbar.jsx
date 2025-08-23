@@ -21,7 +21,7 @@ const NavBar = () => {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/about">About Me</Nav.Link>
                         <Nav.Link href="/projects">Projects</Nav.Link>
-                        <Nav.Link href="https://drive.google.com/file/d/1bzUy0GaCdd918MGrbIjHGfaRPsy6ikCB/view?usp=sharing" target="_blank">Resume</Nav.Link>
+                        <Nav.Link href="https://drive.google.com/file/d/1_DGuxBLElAioKg9r1DjKuKqn8epbHmOi/view?usp=sharing" target="_blank">Resume</Nav.Link>
                         <Nav.Link href="/contact" className='contact_btn'>Contact Me</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

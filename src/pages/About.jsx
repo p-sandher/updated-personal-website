@@ -21,12 +21,10 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          I am a fifth-year student at the University of Guelph, where I study software engineering with a minor in project management. 
-          I am always exploring new approaches to coding, algorithm design, and application development.
-          My educational background and personal projects have given me a solid foundation in both the theory and practice of software engineering, from developing small mobile applications to contributing to large-scale software projects.
-          I thrive when tackling technical challenges in environments that foster innovation and demand pushing the boundaries.
+          I am a fifth-year software engineering student at the University of Guelph, pursuing a minor in project management. My academic background and industry experience span site reliability engineering, DevOps, full-stack development, and machine learning.
+          Through research, internships, and personal projects, I have developed a strong foundation in designing scalable infrastructure, building reliable systems, and applying machine learning to real-world problems. I am particularly interested in how emerging technologies can be combined with effective project management practices to deliver impactful solutions.
+          I am motivated by challenges that demand both technical expertise and strategic thinking, and I am always seeking opportunities to learn, innovate, and contribute meaningfully.
           If you are looking for someone who is enthusiastic about technology and eager to make an impact, let's connect!
-          <br></br>I am currently seeking internship opportunities for <b>Fall 2024</b>.
         </p>
       </div>
 

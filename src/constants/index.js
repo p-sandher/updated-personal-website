@@ -1,4 +1,4 @@
-import { uog, rbc, rogers, dayforce } from "../assets/images";
+import { uog, rbc, rogers, dayforce, munichre } from "../assets/images";
 
 import { R } from "../assets/icons";
 
@@ -248,7 +248,31 @@ export const skills1 = [
 
 export const experiences = [
     {
-        title: "Site Reliability Engineer",
+        title: "Research Assistant",
+        company_name: "University of Guelph",
+        icon: uog,
+        iconBg: "#52575D",
+        date: "May 2025 - Present",
+        points: [
+            "Supervised by: Dr. Andrew Hamilton-Wright",
+            "Conducting research on automating canine capsule endoscopy analysis using deep learning, developing segmentation and classification models to identify relevant frames from gastrointestinal video footage.",
+            "Designed and implemented a feature extraction and evaluation pipeline, generating large-scale datasets from annotated endoscopy masks and training models with PCA, nested cross-validation, and statistical significance testing."
+        ],
+    },
+    {
+        title: "DevOps Engineer Intern",
+        company_name: "Munich Re",
+        icon: munichre,
+        iconBg: "#FFFFFF",
+        date: "May 2025 - August 2025",
+        points: [
+            "Contributed to deployment and scaling of internal machine learning models by maintaining CI/CD pipelines, provisioning cloud-native infrastructure, and optimizing Kubernetes workloads for model training.",
+            "Designed and deployed Kubernetes RBAC policies and Terraform-managed resources across 5 namespaces, enforcing least-privilege access and enhancing compliance in a multi-tenant cloud environment.",
+            "Led the adoption of a hybrid Scrum-Kanban methodology for a cross-functional team of 7 engineers, restructured 2 Jira project boards, and improved sprint velocity by 12%."
+        ],
+    },
+    {
+        title: "Site Reliability Engineer Intern",
         company_name: "Dayforce",
         icon: dayforce,
         iconBg: "#AFEEEE",
@@ -260,7 +284,19 @@ export const experiences = [
         ],
     },
     {
-        title: "Full Stack Developer",
+        title: "Student Ambassdor",
+        company_name: "Royal Bank of Canada (RBC)",
+        icon: rbc,
+        iconBg: "#A7C7E7",
+        date: "May 2024 - Present",
+        points: [
+            "Represented RBC on campus by promoting internship opportunities, organizing recruitment events, and sharing upcoming initiatives with the University of Guelph’s computer science co-op coordinators.",
+            "Connected with and mentored incoming and current interns, facilitating professional development sessions and linking students with RBC’s Early Talent team.",
+            "Supported RBC’s early talent outreach by building relationships with students, fostering interest in technology internships, and strengthening RBC’s presence within the campus community.",
+        ],
+    },
+    {
+        title: "Full Stack Developer Intern",
         company_name: "Royal Bank of Canada (RBC)",
         icon: rbc,
         iconBg: "#A7C7E7",
@@ -285,7 +321,7 @@ export const experiences = [
         ],
     },
     {
-        title: "Full Stack Developer",
+        title: "Full Stack Developer Intern",
         company_name: "Royal Bank of Canada (RBC)",
         icon: rbc,
         iconBg: "#A7C7E7",
@@ -295,6 +331,7 @@ export const experiences = [
             "Developed a LLM team documentation chatbot utilizing vector database, LangChain, and GPT, significantly improving communication efficiency and facilitating seamless knowledge sharing across a vast repository of over 3000 pages.",
             "Utilized React.js to create dynamic front-end components for visualizing network graphs, enhancing network monitoring and troubleshooting.",
             "Delivered a comprehensive presentation of my achievements and contributions to top executives in T&O during the summer term and to the Director of TI in the fall, highlighting key accomplishments and insights acquired throughout the experience.",
+            "Selected as RBC’s Student Ambassador for the University of Guelph, collaborating with the Early Talent team to represent RBC on campus, mentor interns, and support recruitment and outreach initiatives."
         ],
     },
     {
