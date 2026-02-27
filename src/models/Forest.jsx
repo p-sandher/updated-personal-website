@@ -22,10 +22,19 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
     const lastX = useRef(0);
     const rotationSpeed = useRef(0);
     const dampingFactor = 0.95;
+    const introStartTime = useRef(null);
+    const introBaseRotationY = useRef(0);
+    const introDuration = 1.1;
+    const introAmplitude = (5 * Math.PI) / 180;
+
+    const cancelIntroAnimation = () => {
+        introStartTime.current = null;
+    }
 
     const handlePointerDown = (e) => {
         e.stopPropagation();
         e.preventDefault();
+        cancelIntroAnimation();
         setIsRotating(true);
 
         const clientX = event.touches 
@@ -59,9 +68,11 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 
     const handleKeyDown = (e) => {
         if (e.key === 'ArrowLeft') {
+            cancelIntroAnimation();
             if(!isRotating) setIsRotating(true);
             islandRef.current.rotation.y += 0.03 * Math.PI;
         } else if (e.key === 'ArrowRight') {
+            cancelIntroAnimation();
             if(!isRotating) setIsRotating(true);
             islandRef.current.rotation.y -= 0.03 * Math.PI;
         }
@@ -73,7 +84,21 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
         }
     }
 
-    useFrame(() =>{
+    useFrame((state) =>{
+        if(!islandRef.current) return;
+
+        if(introStartTime.current !== null && !isRotating) {
+            const elapsed = (performance.now() - introStartTime.current) / 1000;
+            if(elapsed <= introDuration) {
+                const progress = elapsed / introDuration;
+                islandRef.current.rotation.y = introBaseRotationY.current + introAmplitude * Math.sin(Math.PI * progress);
+            } else {
+                islandRef.current.rotation.y = introBaseRotationY.current;
+                introStartTime.current = null;
+            }
+            return;
+        }
+
         if(!isRotating) {
             rotationSpeed.current *= dampingFactor;
             
@@ -84,7 +109,6 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
         } else {
             const rotation = islandRef.current.rotation.y;
             const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-            console.log(normalizedRotation)
             // Set the current stage based on the island's orientation
             // switch (true) {
             //     case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
@@ -131,6 +155,11 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
     })
 
     useEffect (()  => {
+        if(islandRef.current) {
+            introBaseRotationY.current = islandRef.current.rotation.y;
+            introStartTime.current = performance.now();
+        }
+
         const canvas = gl.domElement;
         canvas.addEventListener('pointerdown', handlePointerDown);
         canvas.addEventListener('pointerup', handlePointerUp);
@@ -222,3 +251,4 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 }
 
 export default Forest;
+useGLTF.preload(islandScene);

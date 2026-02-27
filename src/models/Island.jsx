@@ -163,3 +163,4 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 }
 
 export default Island;
+useGLTF.preload(islandScene);

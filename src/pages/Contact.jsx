@@ -13,6 +13,9 @@ import Card from 'react-bootstrap/Card';
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+  const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
   
   const { alert, showAlert, hideAlert } = useAlert();
   
@@ -28,13 +31,22 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!serviceId || !templateId || !publicKey) {
+      showAlert({
+        text: "Contact form is not configured. Please try again later.",
+        type: "danger",
+      });
+      return;
+    }
+
     setLoading(true);
     setCurrentAnimation("hit");
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         {
           from_name: form.name,
           to_name: "Puneet Sandher",
@@ -42,7 +54,7 @@ const Contact = () => {
           to_email: "puneetsandher@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        publicKey
       )
       .then(
         () => {
@@ -54,14 +66,14 @@ const Contact = () => {
           });
 
           setTimeout(() => {
-            hideAlert(false);
+            hideAlert();
             setCurrentAnimation("idle");
             setForm({
               name: "",
               email: "",
               message: "",
             });
-          }, [3000]);
+          }, 3000);
         },
         (error) => {
           setLoading(false);
