@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 import HomeInfo from '../components/HomeInfo'
 
-import Island from '../models/Island';
 import Sky from '../models/Sky';
 import Bird from '../models/Bird';
 import Plane from '../models/Plane';
@@ -84,18 +83,7 @@ const Home = () => {
             isRotating={isRotating}
           />
  
-          <Suspense
-            fallback={
-              <Island
-                position={islandPosition}
-                scale={islandScale}
-                rotation={islandRotation}
-                isRotating={isRotating}
-                setIsRotating={setIsRotating}
-                setCurrentStage={setCurrentStage}
-              />
-            }
-          >
+          <Suspense fallback={null}>
             <Forest 
               position={islandPosition}
               scale= {islandScale}
