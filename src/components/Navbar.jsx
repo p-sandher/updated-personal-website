@@ -1,5 +1,6 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Navbar, Nav } from "react-bootstrap";
+import resumePdf from '../assets/Puneet_Sandher_Resume_Portfolio.pdf';
 
 const NavBar = () => {
     const location = useLocation();
@@ -13,14 +14,14 @@ const NavBar = () => {
             <Navbar className="site-nav-shell" variant="dark" sticky="top" expand="sm" collapseOnSelect>
 
 
-                <Navbar.Toggle className="coloring" />
-                <Navbar.Collapse>
-                    <Nav className="ms-auto">  {/* This class pushes the nav to the right */}
-                        <Nav.Link href="/" className={`nav-pill-link ${isActive('/') ? 'nav-pill-link-active' : ''}`}>Home</Nav.Link>
-                        <Nav.Link href="/about" className={`nav-pill-link ${isActive('/about') ? 'nav-pill-link-active' : ''}`}>About Me</Nav.Link>
-                        <Nav.Link href="/projects" className={`nav-pill-link ${isActive('/projects') ? 'nav-pill-link-active' : ''}`}>Projects</Nav.Link>
-                        <Nav.Link href="https://drive.google.com/file/d/1_DGuxBLElAioKg9r1DjKuKqn8epbHmOi/view?usp=sharing" target="_blank" className="nav-pill-link">Resume</Nav.Link>
-                        <Nav.Link href="/contact" className={`contact_btn ${isActive('/contact') ? 'nav-pill-link-active' : ''}`}>Contact Me</Nav.Link>
+                <Navbar.Toggle className="coloring" aria-controls="site-navbar-nav" />
+                <Navbar.Collapse id="site-navbar-nav">
+                    <Nav className="nav-pill-group">
+                        <Nav.Link as={Link} to="/" className={`nav-pill-link ${isActive('/') ? 'nav-pill-link-active' : ''}`}>Home</Nav.Link>
+                        <Nav.Link as={Link} to="/about" className={`nav-pill-link ${isActive('/about') ? 'nav-pill-link-active' : ''}`}>About Me</Nav.Link>
+                        <Nav.Link as={Link} to="/projects" className={`nav-pill-link ${isActive('/projects') ? 'nav-pill-link-active' : ''}`}>Projects</Nav.Link>
+                        <Nav.Link href={resumePdf} target="_blank" rel="noopener noreferrer" className="nav-pill-link">Resume</Nav.Link>
+                        <Nav.Link as={Link} to="/contact" className={`contact_btn ${isActive('/contact') ? 'nav-pill-link-active' : ''}`}>Contact Me</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

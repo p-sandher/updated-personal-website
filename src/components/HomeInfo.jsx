@@ -1,15 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import {arrow} from '../assets/icons'
+import resumePdf from '../assets/Puneet_Sandher_Resume_Portfolio.pdf';
 
 
-const InfoBox = ({text, link, btnText}) => (
+const InfoBox = ({text, link, btnText, external = false}) => (
     <div className="info-box">
       <p className="font-medium sm:text-x1 text-center"> {text}  </p>
-      <Link to={link} className="animate-bounce focus:animate-none hover:animate-none  neo-brutalism-white neo-btn">
-        {btnText}
-        <img src={arrow} className="w-4 h-4 object-contain" />
-      </Link>
+      {external ? (
+        <a href={link} target="_blank" rel="noopener noreferrer" className="animate-bounce focus:animate-none hover:animate-none  neo-brutalism-white neo-btn">
+          {btnText}
+          <img src={arrow} className="w-4 h-4 object-contain" />
+        </a>
+      ) : (
+        <Link to={link} className="animate-bounce focus:animate-none hover:animate-none  neo-brutalism-white neo-btn">
+          {btnText}
+          <img src={arrow} className="w-4 h-4 object-contain" />
+        </Link>
+      )}
     </div>
 )
 
@@ -38,8 +46,9 @@ const renderContent = {
     4: (
         <InfoBox 
             text="Take a closer look at my professional journey and expertise"
-            link="https://drive.google.com/file/d/1cljr9zvIOTGU544FgZP7AVtwXUUB_lF9/view?usp=sharing"
+            link={resumePdf}
             btnText="View my  Resume"
+            external
         />
     ), 
     5: (
