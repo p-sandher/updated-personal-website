@@ -6,10 +6,11 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
+import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber'
-import { a } from '@react-spring/three'
+import { a } from '@react-spring/three';
 import islandScene from '../assets/3d/island.glb';
 
 const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
@@ -23,65 +24,13 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
     const rotationSpeed = useRef(0);
     const dampingFactor = 0.95;
 
-    const handlePointerDown = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        setIsRotating(true);
-
-        const clientX = event.touches 
-            ? event.touches[0].clientX 
-            : event.clientX;
-        lastX.current = clientX;
-    }
-
-    const handlePointerUp = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        setIsRotating(false);
-
-        
-    }
-
-    const handlePointerMove = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-
-        if(isRotating) {
-          const clientX = event.touches 
-          ? event.touches[0].clientX 
-          : event.clientX;
-
-          const delta = (clientX - lastX.current) / viewport.width;
-          
-          islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-          lastX.current = clientX;
-          rotationSpeed.current = delta * 0.01 * Math.PI;
-        }
-    }
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'ArrowLeft') {
-            if(!isRotating) setIsRotating(true);
-            islandRef.current.rotation.y += 0.01 * Math.PI;
-        } else if (e.key === 'ArrowRight') {
-            if(!isRotating) setIsRotating(true);
-            islandRef.current.rotation.y -= 0.01 * Math.PI;
-        }
-    }
-
-    const handleKeyUp = (e) => {
-        if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
-            setIsRotating(false);
-        }
-    }
-
     useFrame(() =>{
         if(!isRotating) {
             rotationSpeed.current *= dampingFactor;
-            
+
             if(Math.abs(rotationSpeed.current) < 0.001) {
                 rotationSpeed.current = 0;
-            } 
+            }
             islandRef.current.rotation.y += rotationSpeed.current;
         } else {
             const rotation = islandRef.current.rotation.y;
@@ -104,12 +53,60 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
                 default:
                 setCurrentStage(null);
             }
-            
+
         }
-        
+
     })
 
-    useEffect (()  => {
+    useEffect(() => {
+        const handlePointerDown = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            setIsRotating(true);
+
+            const clientX = e.clientX;
+            lastX.current = clientX;
+        }
+
+        const handlePointerUp = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            setIsRotating(false);
+
+
+        }
+
+        const handlePointerMove = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            if(isRotating) {
+              const clientX = e.clientX;
+
+              const delta = (clientX - lastX.current) / viewport.width;
+
+              islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+              lastX.current = clientX;
+              rotationSpeed.current = delta * 0.01 * Math.PI;
+            }
+        }
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowLeft') {
+                if(!isRotating) setIsRotating(true);
+                islandRef.current.rotation.y += 0.01 * Math.PI;
+            } else if (e.key === 'ArrowRight') {
+                if(!isRotating) setIsRotating(true);
+                islandRef.current.rotation.y -= 0.01 * Math.PI;
+            }
+        }
+
+        const handleKeyUp = (e) => {
+            if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+                setIsRotating(false);
+            }
+        }
+
         const canvas = gl.domElement;
         canvas.addEventListener('pointerdown', handlePointerDown);
         canvas.addEventListener('pointerup', handlePointerUp);
@@ -126,7 +123,7 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 
         }
 
-    }, [gl, handlePointerDown, handlePointerMove, handlePointerUp])
+    }, [gl, isRotating, viewport.width, setIsRotating])
 
   return (
     <a.group ref={islandRef}{...props}>
@@ -161,6 +158,12 @@ const Island = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
     </a.group>
   );
 }
+
+Island.propTypes = {
+  isRotating: PropTypes.bool.isRequired,
+  setIsRotating: PropTypes.func.isRequired,
+  setCurrentStage: PropTypes.func.isRequired,
+};
 
 export default Island;
 useGLTF.preload(islandScene);

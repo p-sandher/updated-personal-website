@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const Alert = ({ type, text }) => {
     return (
       <div className='absolute top-10 left-0 right-0 flex justify-center items-center'>
@@ -20,4 +21,9 @@ const Alert = ({ type, text }) => {
     );
   };
   
-  export default Alert;
+  Alert.propTypes = {
+  type: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export default Alert;

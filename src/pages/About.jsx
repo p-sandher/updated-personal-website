@@ -1,9 +1,8 @@
-import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
 
-import {skills, experiences, libraries, tools} from '../constants/index.js';
+import {skillCategories, experiences} from '../constants/index.js';
 import CTA from '../components/CTA'
 
 const About = () => {
@@ -11,7 +10,7 @@ const About = () => {
   return (
     <section className='max-container'>
       <h1 className='head-text'>
-        Hello, I'm{" "}
+        Hello, I&apos;m{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
           {" "}
           Puneet
@@ -21,81 +20,44 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          I am a fifth-year software engineering student at the University of Guelph, pursuing a minor in project management. My academic background and industry experience span site reliability engineering, DevOps, full-stack development, and machine learning.
-          Through research, internships, and personal projects, I have developed a strong foundation in designing scalable infrastructure, building reliable systems, and applying machine learning to real-world problems. I am particularly interested in how emerging technologies can be combined with effective project management practices to deliver impactful solutions.
-          I am motivated by challenges that demand both technical expertise and strategic thinking, and I am always seeking opportunities to learn, innovate, and contribute meaningfully.
-          If you are looking for someone who is enthusiastic about technology and eager to make an impact, let's connect!
+          I&apos;m a Software Engineer at Munich Re and currently pursuing my Master&apos;s in Computer Science at Georgia Tech, specializing in Machine Learning. I graduated from the University of Guelph with a degree in Software Engineering and a minor in Project Management. I&apos;m also a Certified Associate in Project Management (CAPM) and was recognized as Co-op Student of the Year.
+        </p>
+        <p>
+          I&apos;ve previously worked at Dayforce and the Royal Bank of Canada, gaining experience across different areas of software development. At Munich Re, I work on backend systems for an AI-powered insurance underwriting application. I&apos;ve also conducted machine learning research alongside researchers and veterinarians at the Ontario Veterinary College, developing computer vision tools to make reviewing capsule endoscopy footage more efficient.
+        </p>
+        <p>
+          I&apos;m particularly interested in software engineering, AI, and machine learning. I enjoy tackling interesting technical problems, learning new technologies, and seeing how the things I build can be useful in practice. I&apos;m always happy to connect and hear about what others are working on.
         </p>
       </div>
 
       <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My Skills</h3>
+        <h3 className='subhead-text'>Technical Skills.</h3>
 
-        <h4 className='text-slate-800 font-semibold mt-4 text-xl'>Languages</h4>
-        <div className='mt-8 flex flex-wrap gap-12'>
-          {skills.map((skill) => (
-            <div className='block-container w-20 h-20' key={skill.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={skill.imageUrl}
-                  alt={skill.name}
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h4 className='text-slate-800 font-semibold mt-4 text-xl'>Libraries</h4>
-        <div className='mt-8 flex flex-wrap gap-12'>
-          {libraries.map((libraries) => (
-            <div className='block-container w-20 h-20' key={libraries.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={libraries.imageUrl}
-                  alt={libraries.name}
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <h4 className='text-slate-800 font-semibold mt-4 text-xl'>Tools</h4>
-        <div className='mt-8 flex flex-wrap gap-12'>
-          {tools.map((tools) => (
-            <div className='block-container w-20 h-20' key={tools.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={tools.imageUrl}
-                  alt={tools.name}
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-
+        {skillCategories.map((category) => (
+          <div className='mt-6' key={category.name}>
+            <h4 className='font-poppins font-semibold text-lg text-black-500'>{category.name}</h4>
+            <ul className='mt-3 flex flex-wrap gap-2'>
+              {category.skills.map((skill) => (
+                <li
+                  key={skill}
+                  className='rounded-lg border border-blue-100 bg-blue-50 px-3 py-1.5 text-sm font-medium leading-6 text-blue-600'
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      <div className='py-13'>
+      <div className='pt-10'>
         <h3 className='subhead-text'>Work Experience.</h3>
-        <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-          <p>
-            My work experience has a range of technical roles, where I've developed a strong skill set in software engineering and project management, contributing to a range of projects of diffierent levels of complexity and scale.
-          </p>
-        </div>
-
-        <div className='mt-12 flex'>
-          <VerticalTimeline>
-            {experiences.map((experience, index) => (
+        <div className='mt-6 flex'>
+          <VerticalTimeline layout='1-column-left' className='experience-timeline'>
+            {experiences.map((experience) => (
               <VerticalTimelineElement
-                key={experience.company_name}
-                date={experience.date}
+                key={`${experience.company_name}-${experience.title}-${experience.date}`}
+                dateClassName='!hidden'
                 iconStyle={{ background: experience.iconBg }}
                 icon={
                   <div className='flex justify-center items-center w-full h-full'>
@@ -113,7 +75,7 @@ const About = () => {
                   boxShadow: "none",
                 }}
               >
-                <div>
+                <div className='experience-heading'>
                   <h3 className='text-black text-xl font-poppins font-semibold'>
                     {experience.title}
                   </h3>
@@ -123,13 +85,14 @@ const About = () => {
                   >
                     {experience.company_name}
                   </p>
+                  <p className='experience-date'>{experience.date}</p>
                 </div>
 
-                <ul className='my-5 list-disc ml-5 space-y-2'>
+                <ul className='mt-3 mb-0 list-disc ml-5 space-y-1.5'>
                   {experience.points.map((point, index) => (
                     <li
                       key={`experience-point-${index}`}
-                      className='text-black-500/50 font-normal pl-1 text-sm'
+                      className='text-slate-600 font-normal pl-1 text-[15px] leading-6'
                     >
                       {point}
                     </li>

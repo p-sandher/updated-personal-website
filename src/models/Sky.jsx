@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useGLTF } from '@react-three/drei'
 import {useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
@@ -7,17 +8,6 @@ import skyScene from '../assets/3d/sky.glb'
 const Sky = ( {isRotating}) => {
     const sky = useGLTF(skyScene);
     const skyRef = useRef();
-
-    const { scene, nodes, materials, error } = useGLTF(skyScene);
-
-    if (error) {
-        console.error("Failed to load GLTF:", error);
-        return <div>Error loading model.</div>;
-      }
-      
-      console.log("Scene:", scene);
-      console.log("Nodes:", nodes);
-      console.log("Materials:", materials);
 
     useFrame( (_, delta) => {
         if(isRotating) {
@@ -35,5 +25,9 @@ const Sky = ( {isRotating}) => {
         </mesh>
     )
 }
+
+Sky.propTypes = {
+  isRotating: PropTypes.bool.isRequired,
+};
 
 export default Sky

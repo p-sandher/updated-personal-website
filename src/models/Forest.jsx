@@ -6,18 +6,19 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
+import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber'
-import { a } from '@react-spring/three'
+import { a } from '@react-spring/three';
 import islandScene from '../assets/3d/baker_and_the_bridge.glb';
 
-const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
+const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props}) => {
     const islandRef = useRef();
 
     const {gl, viewport } = useThree();
 
-    const { nodes, materials } = useGLTF(islandScene)
+    const { scene } = useGLTF(islandScene)
 
     const lastX = useRef(0);
     const rotationSpeed = useRef(0);
@@ -27,67 +28,11 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
     const introDuration = 1.1;
     const introAmplitude = (5 * Math.PI) / 180;
 
-    const cancelIntroAnimation = () => {
-        introStartTime.current = null;
-    }
-
-    const handlePointerDown = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        cancelIntroAnimation();
-        setIsRotating(true);
-
-        const clientX = event.touches 
-            ? event.touches[0].clientX 
-            : event.clientX;
-        lastX.current = clientX;
-    }
-
-    const handlePointerUp = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-        setIsRotating(false);
-    }
-
-    const handlePointerMove = (e) => {
-        e.stopPropagation();
-        e.preventDefault();
-
-        if(isRotating) {
-          const clientX = event.touches 
-          ? event.touches[0].clientX 
-          : event.clientX;
-
-          const delta = (clientX - lastX.current) / viewport.width;
-          
-          islandRef.current.rotation.y += delta * 0.01 * Math.PI;
-          lastX.current = clientX;
-          rotationSpeed.current = delta * 0.01 * Math.PI;
-        }
-    }
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'ArrowLeft') {
-            cancelIntroAnimation();
-            if(!isRotating) setIsRotating(true);
-            islandRef.current.rotation.y += 0.03 * Math.PI;
-        } else if (e.key === 'ArrowRight') {
-            cancelIntroAnimation();
-            if(!isRotating) setIsRotating(true);
-            islandRef.current.rotation.y -= 0.03 * Math.PI;
-        }
-    }
-
-    const handleKeyUp = (e) => {
-        if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
-            setIsRotating(false);
-        }
-    }
-
-    useFrame((state) =>{
+    useFrame(() =>{
         if(!islandRef.current) return;
 
         if(introStartTime.current !== null && !isRotating) {
+            // Return to the starting angle after a small movement that hints at interaction.
             const elapsed = (performance.now() - introStartTime.current) / 1000;
             if(elapsed <= introDuration) {
                 const progress = elapsed / introDuration;
@@ -100,14 +45,16 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
         }
 
         if(!isRotating) {
+            // Preserve drag momentum after release, then stop tiny residual movements.
             rotationSpeed.current *= dampingFactor;
-            
+
             if(Math.abs(rotationSpeed.current) < 0.001) {
                 rotationSpeed.current = 0;
-            } 
+            }
             islandRef.current.rotation.y += rotationSpeed.current;
         } else {
             const rotation = islandRef.current.rotation.y;
+            // Wrap both rotation directions into one turn so stage ranges remain stable.
             const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
             // Set the current stage based on the island's orientation
             // switch (true) {
@@ -127,6 +74,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
             //     setCurrentStage(null);
             // }
 
+            // These radian ranges align the HomeInfo cards with landmarks on this model.
             switch (true) {
                 case normalizedRotation >= 5.3 && normalizedRotation <= 5.5:
                 setCurrentStage(2);
@@ -149,15 +97,63 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
                 default:
                 setCurrentStage(null);
             }
-            
+
         }
-        
+
     })
 
-    useEffect (()  => {
-        if(islandRef.current) {
-            introBaseRotationY.current = islandRef.current.rotation.y;
-            introStartTime.current = performance.now();
+    useEffect(() => {
+        const cancelIntroAnimation = () => {
+            introStartTime.current = null;
+        }
+
+        const handlePointerDown = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            cancelIntroAnimation();
+            setIsRotating(true);
+
+            const clientX = e.clientX;
+            lastX.current = clientX;
+        }
+
+        const handlePointerUp = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            setIsRotating(false);
+        }
+
+        const handlePointerMove = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            if(isRotating) {
+              const clientX = e.clientX;
+
+              const delta = (clientX - lastX.current) / viewport.width;
+
+              islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+              lastX.current = clientX;
+              rotationSpeed.current = delta * 0.01 * Math.PI;
+            }
+        }
+
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowLeft') {
+                cancelIntroAnimation();
+                if(!isRotating) setIsRotating(true);
+                islandRef.current.rotation.y += 0.03 * Math.PI;
+            } else if (e.key === 'ArrowRight') {
+                cancelIntroAnimation();
+                if(!isRotating) setIsRotating(true);
+                islandRef.current.rotation.y -= 0.03 * Math.PI;
+            }
+        }
+
+        const handleKeyUp = (e) => {
+            if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+                setIsRotating(false);
+            }
         }
 
         const canvas = gl.domElement;
@@ -176,79 +172,29 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, ...props}) => {
 
         }
 
-    }, [gl, handlePointerDown, handlePointerMove, handlePointerUp])
+    }, [gl, isRotating, viewport.width, setIsRotating])
+
+  useEffect(() => {
+    // Start the intro independently of input subscriptions so dragging cannot restart it.
+    introBaseRotationY.current = islandRef.current.rotation.y;
+    introStartTime.current = performance.now();
+    onReady();
+  }, [onReady]);
 
   return (
-    <a.group ref={islandRef}{...props}>
-      <group rotation={[Math.PI / 2, 0, -Math.PI]}>
-        <group rotation={[-Math.PI, 0, 0]} scale={0.01}>
-          <group rotation={[0, 0, -Math.PI / 2]} scale={100}>
-            <mesh geometry={nodes.characters_STONE_a_0.geometry} material={materials.STONE_a} />
-            <mesh geometry={nodes.characters_STONE_a_0_1.geometry} material={materials.STONE_a} />
-          </group>
-          <group rotation={[0, 0, -Math.PI / 2]} scale={100}>
-            <mesh geometry={nodes.characters007_bush_0.geometry} material={materials.bush} />
-            <mesh geometry={nodes.characters007_bush_0_1.geometry} material={materials.bush} />
-          </group>
-          <mesh
-            geometry={nodes.characters001_charcters_0.geometry}
-            material={materials.charcters}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters002_watermill_0.geometry}
-            material={materials.watermill}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters003_terrain_left_0.geometry}
-            material={materials.terrain_left}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters004_house_0.geometry}
-            material={materials.house}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters005_bridge_0.geometry}
-            material={materials.bridge}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters006_tree_0.geometry}
-            material={materials.tree}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters008_water_0.geometry}
-            material={materials.water}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters009_terrain_right_0.geometry}
-            material={materials.terrain_right}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-          <mesh
-            geometry={nodes.characters010_wheat_0.geometry}
-            material={materials.wheat}
-            rotation={[0, 0, -Math.PI / 2]}
-            scale={100}
-          />
-        </group>
-      </group>
+    <a.group ref={islandRef} {...props} dispose={null}>
+      {/* Preserve the optimized GLTF hierarchy and its mesh quantization transforms. */}
+      <primitive object={scene} />
     </a.group>
   );
 }
+
+Forest.propTypes = {
+  isRotating: PropTypes.bool.isRequired,
+  setIsRotating: PropTypes.func.isRequired,
+  setCurrentStage: PropTypes.func.isRequired,
+  onReady: PropTypes.func.isRequired,
+};
 
 export default Forest;
 useGLTF.preload(islandScene);
