@@ -3,7 +3,6 @@ import { uog, rbc, rogers, dayforce, munichre } from "../assets/images";
 import { R } from "../assets/icons";
 
 import {
-    car,
     contact,
     css,
     express,
@@ -16,13 +15,9 @@ import {
     mui,
     nextjs,
     nodejs,
-    pricewise,
     redux,
     sass,
-    snapgram,
-    summiz,
     tailwindcss,
-    threads,
     typescript,
     react,
     git,
@@ -424,7 +419,6 @@ export const projects = [
         description: 'Created an S&P 500 Stock Price Scraper using Python to automate the collection and analysis of real-time financial data, enhancing investment decision-making processes.',
         link: 'https://github.com/p-sandher/S-P-500-Stock-Price-Scraper',
     },
-    ,
     {
         iconUrl: sort,
         theme: 'btn-back-blue',

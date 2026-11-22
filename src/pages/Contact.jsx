@@ -94,7 +94,7 @@ const Contact = () => {
       {alert.show && <Alert {...alert} />}
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Let's Connect</h1>
+        <h1 className='head-text'>Let&apos;s Connect</h1>
 
         <Card className="text-center mt-4" style={{ cursor: 'pointer', backgroundColor: '#1a535c', color: 'white' }}  onClick={() => window.open('https://www.linkedin.com/in/puneet-sandher/', '_blank')}>
             <Card.Body>

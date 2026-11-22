@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useGLTF } from '@react-three/drei'
 import {useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
@@ -24,5 +25,9 @@ const Sky = ( {isRotating}) => {
         </mesh>
     )
 }
+
+Sky.propTypes = {
+  isRotating: PropTypes.bool.isRequired,
+};
 
 export default Sky

@@ -1,14 +1,5 @@
-/**
- * Loading glTF models into a Three.js scene is a lot of work.
- * Before configuring or animate model’s meshes, need to iterate through
- * each part of our model’s meshes and save them separately.
- *
- * An app that turns gltf or glb files into jsx components
- * For this model, visit https://gltf.pmnd.rs/
- * And get the code. And then add the rest of the things.
- */
-
- import React, { useRef, useEffect } from "react";
+ import PropTypes from 'prop-types';
+import { useRef, useEffect } from "react";
  import { useGLTF, useAnimations } from "@react-three/drei";
  
  import scene from "../assets/3d/fox.glb";
@@ -67,5 +58,9 @@
    );
  }
  
+
+Fox.propTypes = {
+  currentAnimation: PropTypes.string.isRequired,
+};
 
 export default Fox;

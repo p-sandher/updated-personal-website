@@ -1,4 +1,3 @@
-import React from 'react'
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -11,7 +10,7 @@ const About = () => {
   return (
     <section className='max-container'>
       <h1 className='head-text'>
-        Hello, I'm{" "}
+        Hello, I&apos;m{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
           {" "}
           Puneet
@@ -21,13 +20,13 @@ const About = () => {
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          I'm a Software Engineer at Munich Re and currently pursuing my Master's in Computer Science at Georgia Tech, specializing in Machine Learning. I graduated from the University of Guelph with a degree in Software Engineering and a minor in Project Management. I'm also a Certified Associate in Project Management (CAPM) and was recognized as Co-op Student of the Year.
+          I&apos;m a Software Engineer at Munich Re and currently pursuing my Master&apos;s in Computer Science at Georgia Tech, specializing in Machine Learning. I graduated from the University of Guelph with a degree in Software Engineering and a minor in Project Management. I&apos;m also a Certified Associate in Project Management (CAPM) and was recognized as Co-op Student of the Year.
         </p>
         <p>
-          I've previously worked at Dayforce and the Royal Bank of Canada, gaining experience across different areas of software development. At Munich Re, I work on backend systems for an AI-powered insurance underwriting application. I've also conducted machine learning research alongside researchers and veterinarians at the Ontario Veterinary College, developing computer vision tools to make reviewing capsule endoscopy footage more efficient.
+          I&apos;ve previously worked at Dayforce and the Royal Bank of Canada, gaining experience across different areas of software development. At Munich Re, I work on backend systems for an AI-powered insurance underwriting application. I&apos;ve also conducted machine learning research alongside researchers and veterinarians at the Ontario Veterinary College, developing computer vision tools to make reviewing capsule endoscopy footage more efficient.
         </p>
         <p>
-          I'm particularly interested in software engineering, AI, and machine learning. I enjoy tackling interesting technical problems, learning new technologies, and seeing how the things I build can be useful in practice. I'm always happy to connect and hear about what others are working on.
+          I&apos;m particularly interested in software engineering, AI, and machine learning. I enjoy tackling interesting technical problems, learning new technologies, and seeing how the things I build can be useful in practice. I&apos;m always happy to connect and hear about what others are working on.
         </p>
       </div>
 

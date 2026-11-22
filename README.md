@@ -68,6 +68,18 @@ $ npm install
 $ npm run dev
 ```
 
+### Local checks
+
+Use Node.js 24, as specified in `.nvmrc`. Install dependencies with `npm ci` and install the test browser once with `npx playwright install chromium`.
+
+```bash
+npm run lint  # Check JavaScript, React, and hooks
+npm test      # Build and run desktop and mobile browser smoke tests
+npm run check # Run lint, build, and browser checks together
+```
+
+GitHub Actions runs these checks on pushes and pull requests. Failed browser checks include an HTML report, screenshots, and traces in the workflow artifacts.
+
 ### Built With
 
 * [![Tailwind][Tailwind]][Tailwind-url]

@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {arrow} from '../assets/icons'
 import resumePdf from '../assets/Puneet_Sandher_Resume_Portfolio.pdf';
@@ -65,5 +65,16 @@ const HomeInfo = ( {currentStage}) => {
   return  renderContent[currentStage] || null;
   
 }
+
+InfoBox.propTypes = {
+  text: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  btnText: PropTypes.string.isRequired,
+  external: PropTypes.bool,
+};
+
+HomeInfo.propTypes = {
+  currentStage: PropTypes.number,
+};
 
 export default HomeInfo
