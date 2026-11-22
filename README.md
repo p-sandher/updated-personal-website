@@ -27,7 +27,7 @@
 <br />
 <div align="center">
   <a href="https://puneet-sandher.netlify.app/">
-    <img src="puneet-sandher-logo.png" alt="Logo" width="200" height="200">
+    <img src="docs/images/puneet-sandher-logo.png" alt="Logo" width="200" height="200">
   </a>
 
 <h3 align="center">Personal Portfolio</h3>
@@ -46,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="website-preview.png" alt="Website Preview">
+<img src="docs/images/website-preview.png" alt="Website Preview">
 
 This portfolio website is designed to showcase my journey and competencies as a software developer. It features interactive 3D animations powered by Three.js, enhancing the user experience and providing a dynamic way to explore my professional experiences, skills, and projects. The site is built with a focus on visual storytelling, aiming to present my work in the most engaging manner. Through this portfolio, I aim to illustrate not only my technical abilities but also my creativity and passion for software development. Please explore the site to learn more about my personal and professional milestones.
 
