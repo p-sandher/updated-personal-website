@@ -79,6 +79,7 @@ test('the island renders and shows the appropriate exploration hint', async ({ p
     isMobile ? 'Swipe to explore the island' : 'Use your keyboard to explore',
     { exact: true },
   )).toBeVisible();
+  // Guard against accidentally replacing the optimized island with the original large asset.
   const island = await page.evaluate(() => performance.getEntriesByType('resource')
     .find((entry) => /baker_and_the_bridge.*\.glb/.test(entry.name))?.encodedBodySize);
   expect(island).toBeGreaterThan(0);
@@ -92,6 +93,7 @@ test('arrow keys rotate the island to another portfolio section', async ({ page,
   await page.goto('/');
   await expect(page.locator('section[aria-busy="false"]')).toBeVisible({ timeout: 30_000 });
   try {
+    // Each keydown advances rotation. Explicit repeats avoid OS key-repeat timing in CI.
     for (let step = 0; step < 10; step += 1) {
       await page.keyboard.down('ArrowRight');
     }

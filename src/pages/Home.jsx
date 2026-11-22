@@ -11,6 +11,7 @@ import Forest  from '../models/Forest';
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [isIslandReady, setIsIslandReady] = useState(false);
+  // Keep the callback stable so parent renders do not restart Forest's intro effect.
   const handleIslandReady = useCallback(() => setIsIslandReady(true), []);
 
   const [currentStage, setCurrentStage] = useState(1)
@@ -85,6 +86,7 @@ const Home = () => {
         <ambientLight intensity={0.5} />
         <hemisphereLight color="#b1e1ff" groundColor="#000000" intensity={1}/>
 
+        {/* Separate boundaries let each model appear as soon as its own asset is ready. */}
         <Suspense fallback={null}>
           <Bird />
         </Suspense>

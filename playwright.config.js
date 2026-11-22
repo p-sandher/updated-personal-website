@@ -6,11 +6,13 @@ export default defineConfig({
   expect: { timeout: 15_000 },
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
+  // Software-rendered WebGL scenes share the runner's CPU, so run tests serially.
   workers: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
     baseURL: 'http://127.0.0.1:4173',
     browserName: 'chromium',
+    // Allow the island to render on headless runners without a physical GPU.
     launchOptions: { args: ['--enable-unsafe-swiftshader'] },
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
@@ -27,6 +29,7 @@ export default defineConfig({
     },
   ],
   webServer: {
+    // Test the production output built by npm test, including bundled asset URLs.
     command: 'npm run preview -- --host 127.0.0.1 --port 4173 --strictPort',
     url: 'http://127.0.0.1:4173',
     timeout: 30_000,

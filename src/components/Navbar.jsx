@@ -13,6 +13,7 @@ const NavBar = () => {
   const handleKeyDown = (event) => {
     if (event.key === 'Escape' && menuOpen) {
       closeMenu();
+      // Restore keyboard focus before the collapsed menu hides its links.
       menuButtonRef.current?.focus();
     }
   };

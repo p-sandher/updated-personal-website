@@ -32,6 +32,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
         if(!islandRef.current) return;
 
         if(introStartTime.current !== null && !isRotating) {
+            // Return to the starting angle after a small movement that hints at interaction.
             const elapsed = (performance.now() - introStartTime.current) / 1000;
             if(elapsed <= introDuration) {
                 const progress = elapsed / introDuration;
@@ -44,6 +45,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
         }
 
         if(!isRotating) {
+            // Preserve drag momentum after release, then stop tiny residual movements.
             rotationSpeed.current *= dampingFactor;
 
             if(Math.abs(rotationSpeed.current) < 0.001) {
@@ -52,6 +54,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
             islandRef.current.rotation.y += rotationSpeed.current;
         } else {
             const rotation = islandRef.current.rotation.y;
+            // Wrap both rotation directions into one turn so stage ranges remain stable.
             const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
             // Set the current stage based on the island's orientation
             // switch (true) {
@@ -71,6 +74,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
             //     setCurrentStage(null);
             // }
 
+            // These radian ranges align the HomeInfo cards with landmarks on this model.
             switch (true) {
                 case normalizedRotation >= 5.3 && normalizedRotation <= 5.5:
                 setCurrentStage(2);
@@ -171,6 +175,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
     }, [gl, isRotating, viewport.width, setIsRotating])
 
   useEffect(() => {
+    // Start the intro independently of input subscriptions so dragging cannot restart it.
     introBaseRotationY.current = islandRef.current.rotation.y;
     introStartTime.current = performance.now();
     onReady();
@@ -178,6 +183,7 @@ const Forest = ({isRotating, setIsRotating, setCurrentStage, onReady, ...props})
 
   return (
     <a.group ref={islandRef} {...props} dispose={null}>
+      {/* Preserve the optimized GLTF hierarchy and its mesh quantization transforms. */}
       <primitive object={scene} />
     </a.group>
   );
