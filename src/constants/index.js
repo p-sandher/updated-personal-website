@@ -24,25 +24,7 @@ import {
     tailwindcss,
     threads,
     typescript,
-    ada,
-    C,
-    cobol,
-    css3,
-    fortran,
-    html5,
-    java,
-    python,
-    bootstrap,
-    react_native,
     react,
-    tailwind,
-    docker,
-    expo,
-    figma,
-    jenkins,
-    mysql,
-    vscode,
-    postman,
     git,
     calculator,
     shanti,
@@ -58,105 +40,82 @@ import {
     calendar
 } from "../assets/icons";
 
-
-
-export const skills = [
+export const skillCategories = [
     {
-        imageUrl: python,
-        name: "Python",
+        name: "Languages",
+        skills: [
+            "Python",
+            "Java",
+            "C",
+            "SQL",
+            "Go",
+            "JavaScript",
+            "TypeScript",
+            "HTML",
+            "CSS",
+            "C#",
+        ],
     },
     {
-        imageUrl: C,
-        name: "C",
+        name: "Developer Tools",
+        skills: [
+            "Git",
+            "Claude Code",
+            "Datadog",
+            "Grafana",
+            "Prometheus",
+            "SonarQube",
+            "Jira",
+            "VS Code",
+        ],
     },
     {
-        imageUrl: java,
-        name: "java",
+        name: "Frameworks",
+        skills: [
+            "React",
+            "Node.js",
+            "Django",
+            "Spring Boot",
+            "pytest",
+            "Playwright",
+            "JUnit",
+            "Jest",
+            "Selenium",
+            "Streamlit",
+            "Tailwind",
+        ],
     },
     {
-        imageUrl: javascript,
-        name: "javascript",
+        name: "Cloud & DevOps",
+        skills: [
+            "Azure",
+            "Kubernetes",
+            "Docker",
+            "Terraform",
+            "Helm",
+            "Argo CD",
+            "Azure DevOps",
+            "Jenkins",
+            "CI/CD",
+            "Linux",
+        ],
     },
     {
-        imageUrl: css3,
-        name: "CSS",
+        name: "Libraries",
+        skills: [
+            "pandas",
+            "NumPy",
+            "scikit-learn",
+            "PyTorch",
+            "TensorFlow",
+            "OpenCV",
+            "LangChain",
+            "seaborn",
+            "jQuery",
+            "Three.js",
+        ],
     },
-    {
-        imageUrl: R,
-        name: "R",
-    },
-    {
-        imageUrl: ada,
-        name: "Ada",
-    },
-    {
-        imageUrl: html5,
-        name: "HTML",
-    },
-    {
-        imageUrl: cobol,
-        name: "cobol",
-    },
-    
-    {
-        imageUrl: fortran,
-        name: "Fortran",
-    }
-]
-
-export const libraries = [
-    {
-        imageUrl: react,
-        name: "React.js",
-    },
-    {
-        imageUrl: tailwind,
-        name: "Tailwind",
-    },
-    {
-        imageUrl: nodejs,
-        name: "node.js",
-    },
-    {
-        imageUrl: bootstrap,
-        name: "Bootstrap",
-    }
-]
-
-export const tools = [
-    {
-        imageUrl: git,
-        name: "git",
-    },
-    {
-        imageUrl: docker,
-        name: "docker",
-    },
-    {
-        imageUrl: expo,
-        name: "expo",
-    },
-    {
-        imageUrl: figma,
-        name: "figma",
-    },
-    {
-        imageUrl: jenkins,
-        name: "jenkins",
-    },
-    {
-        imageUrl: mysql,
-        name: "mysql",
-    },
-    {
-        imageUrl: vscode,
-        name: "vscode",
-    },
-    {
-        imageUrl: postman,
-        name: "postman",
-    },
-]
+];
 
 export const skills1 = [
     {
@@ -248,27 +207,41 @@ export const skills1 = [
 
 export const experiences = [
     {
-        title: "Research Assistant",
-        company_name: "University of Guelph",
-        icon: uog,
-        iconBg: "#52575D",
-        date: "May 2025 - Present",
+        title: "Software Engineer",
+        company_name: "Munich Re",
+        icon: munichre,
+        iconBg: "#FFFFFF",
+        date: "June 2026 - Present",
         points: [
-            "Supervised by: Dr. Andrew Hamilton-Wright",
-            "Conducting research on automating canine capsule endoscopy analysis using deep learning, developing segmentation and classification models to identify relevant frames from gastrointestinal video footage.",
-            "Designed and implemented a feature extraction and evaluation pipeline, generating large-scale datasets from annotated endoscopy masks and training models with PCA, nested cross-validation, and statistical significance testing."
+            "Refactored production Python backend workflows for an AI-powered insurance underwriting platform, optimizing API integrations and order synchronization for 2 insurance clients to enable daily updates instead of 90-day polling cycles.",
+            "Reduced backend API request latency by 23% through persistent, client-specific HTTPX connection pooling, eliminating redundant TCP/TLS handshakes and validating improvements through load testing.",
+            "Built an LLM-powered code review workflow using Claude Code, leveraging context engineering and Git diff analysis to automate code validation and generate severity-ranked findings. Shared the workflow across the engineering department.",
+            "Optimized Azure Kubernetes infrastructure using Terraform and Helm, tuning Argo CD resources and scaling system nodes to accelerate database migrations ahead of a production release with a 1-hour downtime SLA.",
+            "Developed automated end-to-end regression tests for an AI-powered underwriting platform using Python, pytest, and Playwright, validating frontend-backend API data integrity and identifying 15 defects tracked in Jira."
         ],
     },
     {
-        title: "DevOps Engineer Intern",
+        title: "Undergraduate Machine Learning Researcher",
+        company_name: "University of Guelph",
+        icon: uog,
+        iconBg: "#52575D",
+        date: "May 2025 - June 2026",
+        points: [
+            "Developed 2 computer vision tools for veterinary capsule endoscopy, automating gastrointestinal region classification and filtering non-diagnostic footage to reduce clinical review time by 30 minutes per case.",
+            "Built large-scale data pipelines to process 200GB+ of raw endoscopy video into model-ready datasets (frame extraction, patching, labeling, normalization, feature engineering) using OpenCV, NumPy, pandas, and scikit-learn.",
+            "Trained and benchmarked Random Forest, XGBoost, and CNN models using PyTorch and TensorFlow on 1M+ endoscopy frames, evaluating classification performance through cross-validation, precision, and recall."
+        ],
+    },
+    {
+        title: "Software Engineer Intern",
         company_name: "Munich Re",
         icon: munichre,
         iconBg: "#FFFFFF",
         date: "May 2025 - August 2025",
         points: [
-            "Contributed to deployment and scaling of internal machine learning models by maintaining CI/CD pipelines, provisioning cloud-native infrastructure, and optimizing Kubernetes workloads for model training.",
-            "Designed and deployed Kubernetes RBAC policies and Terraform-managed resources across 5 namespaces, enforcing least-privilege access and enhancing compliance in a multi-tenant cloud environment.",
-            "Led the adoption of a hybrid Scrum-Kanban methodology for a cross-functional team of 7 engineers, restructured 2 Jira project boards, and improved sprint velocity by 12%."
+            "Designed and deployed Kubernetes RBAC policies using Terraform, Helm and Argo CD via Azure DevOps, enforcing least-privilege access across 10 clusters and 45 namespaces supporting 7 teams in multi-tenant environments.",
+            "Implemented Cilium ingress and egress network policies across Kubernetes clusters to secure Datadog monitoring traffic, enforce least-privilege connectivity, and troubleshoot denied flows using Hubble.",
+            "Drove the platform team's Agile-to-Kanban transition, optimizing Azure DevOps boards, backlog prioritization, and workflow management to improve cross-functional collaboration, project visibility, and delivery predictability."
         ],
     },
     {
@@ -332,17 +305,6 @@ export const experiences = [
             "Utilized React.js to create dynamic front-end components for visualizing network graphs, enhancing network monitoring and troubleshooting.",
             "Delivered a comprehensive presentation of my achievements and contributions to top executives in T&O during the summer term and to the Director of TI in the fall, highlighting key accomplishments and insights acquired throughout the experience.",
             "Selected as RBC’s Student Ambassador for the University of Guelph, collaborating with the Early Talent team to represent RBC on campus, mentor interns, and support recruitment and outreach initiatives."
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "University of Guelph",
-        icon: uog,
-        iconBg: "#52575D",
-        date: "December 2022 - April 2023",
-        points: [
-            "Spearheaded the development and maintenance of an academic report website, proficiently utilizing web development tools such as React.js, Weebly, HTML, and CSS to implement 7 features to improve design and efficiency. Improved website design by 25%.",
-            "Implemented a streamlined process by creating a custom program to automate the conversion of request form data into PDFs, enhancing efficiency and user experience.",
         ],
     },
     {
